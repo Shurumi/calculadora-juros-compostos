@@ -144,3 +144,11 @@ Este projeto segue as boas práticas de:
 ## 📄 Licença
 
 Projeto educacional — sem fins comerciais.
+## Melhorias da versão
+
+As melhorias implementadas nesta versão incluem:
+
+- Melhorias nas mensagens de validação.
+- Ajustes visuais na interface.
+- Inclusão de rodapé informativo.
+- Melhor experiência do usuário.
