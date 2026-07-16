@@ -103,7 +103,7 @@ calculadora-juros-compostos/
 | Nome | GitHub |
 |------|--------|
 | Danilo | [@Shurumi](https://github.com/Shurumi) |
-| Integrante 2 | @usuario2 |
+| Caio Victor | @Victuallxz |
 | Integrante 3 | @usuario3 |
 | Integrante 4 | @usuario4 |
 
