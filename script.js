@@ -49,9 +49,20 @@ function calcular() {
   const periodoTaxa  = document.querySelector('input[name="periodo-taxa"]:checked').value;
   const periodoTempo = document.querySelector('input[name="periodo-tempo"]:checked').value;
 
-  if (capitalInput <= 0) { exibirErro('O capital inicial deve ser maior que zero.'); return; }
-  if (taxaInput <= 0)    { exibirErro('A taxa de juros deve ser maior que zero.'); return; }
-  if (tempoInput <= 0)   { exibirErro('O período deve ser maior que zero.'); return; }
+if (capitalInput <= 0) {
+    exibirErro('Informe um capital inicial válido (maior que R$ 0,00).');
+    return;
+}
+
+if (taxaInput <= 0) {
+    exibirErro('Informe uma taxa de juros válida e maior que 0%.');
+    return;
+}
+
+if (tempoInput <= 0) {
+    exibirErro('Informe um período de investimento maior que zero.');
+    return;
+}
 
   const taxaMensal    = periodoTaxa === 'anual' ? Math.pow(1 + taxaInput / 100, 1/12) - 1 : taxaInput / 100;
   const periodosMeses = periodoTempo === 'anos' ? tempoInput * 12 : tempoInput;
