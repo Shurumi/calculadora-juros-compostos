@@ -16,6 +16,11 @@ function formatarMoeda(valor) {
 function formatarPorcentagem(valor) {
   return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
 }
+/** Estima em quantos anos o capital dobra (Regra dos 72) */
+function calcularTempoDobrarCapital(taxaAnual) {
+  if (taxaAnual <= 0) return '-';
+  return (72 / taxaAnual).toFixed(1);
+}
 
 /**
  * Calcula juros compostos com ou sem aportes mensais
@@ -68,6 +73,19 @@ function atualizarResultados(res, capital, taxaInput, periodos, taxaMensal, tipo
   document.getElementById('result-capital').textContent  = formatarMoeda(res.capitalInicial);
   document.getElementById('result-juros').textContent    = formatarMoeda(res.totalJuros);
   document.getElementById('result-crescimento-pct').textContent = `+${formatarPorcentagem(res.crescimentoPct)} de crescimento`;
+
+  // Exibe estimativa de tempo para dobrar o capital
+const tempoDobrar = calcularTempoDobrarCapital(
+  tipoTaxa === 'anual'
+    ? taxaInput
+    : (Math.pow(1 + taxaMensal, 12) - 1) * 100
+);
+
+document.getElementById('result-crescimento-pct').innerHTML =
+  `+${formatarPorcentagem(res.crescimentoPct)} de crescimento<br>
+   <small style="color:var(--text-muted)">
+      Capital dobra em aproximadamente ${tempoDobrar} anos
+   </small>`;
 
   const rowAportes = document.getElementById('row-aportes');
   if (aporte > 0) {
