@@ -200,3 +200,21 @@ body {
     0 12px 30px rgba(0, 0, 0, 0.35),
     0 0 20px rgba(99, 130, 230, 0.15);
 }
+
+.form-input {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-input:focus {
+  background-color: rgba(99, 130, 230, 0.08);
+}
+
+.form-input:not(:placeholder-shown) {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.form-input::selection {
+  background: var(--primary);
+  color: #fff;
+}
