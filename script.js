@@ -176,3 +176,12 @@ document.querySelectorAll('.form-input').forEach(input => {
   input.addEventListener('keydown', e => { if (e.key === 'Enter') calcular(); });
 });
 window.addEventListener('DOMContentLoaded', () => { calcular(); });
+// ================================
+// Atalho: tecla ESC limpa os campos
+// ================================
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    limpar();
+  }
+});
